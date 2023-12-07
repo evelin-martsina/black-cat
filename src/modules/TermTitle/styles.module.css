@@ -2,7 +2,7 @@
     text-align: center;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 445px) {
     .title {
         font-size: 4rem;
     }

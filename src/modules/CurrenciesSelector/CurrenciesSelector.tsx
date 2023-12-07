@@ -1,5 +1,5 @@
 import { Layout } from 'src/components/Layout';
-import { Selector } from 'src/components/Selector';
+import { Select } from 'src/components/Selector';
 
 import { useCurrenciesContext } from '../CurrenciesContext';
 
@@ -8,7 +8,7 @@ export const CurrenciesSelector = () => {
 
     return (
         <Layout isError={isError} isLoading={isLoading}>
-            <Selector options={ids} value={selectedId} onChange={setSelectedId} />
+            <Select options={ids} value={selectedId} onChange={setSelectedId} />
         </Layout>
     );
 };

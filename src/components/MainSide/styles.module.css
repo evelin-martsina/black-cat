@@ -1,0 +1,7 @@
+.container {
+    background: var(--white) url('../../assets/images/Kitten.png') no-repeat fixed top right;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}

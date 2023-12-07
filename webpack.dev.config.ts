@@ -45,6 +45,9 @@ const config: Configuration = {
         ],
     },
     resolve: {
+        alias: {
+            src: path.resolve(__dirname, 'src'),
+        },
         extensions: ['.js', '.tsx', '.ts'],
     },
     plugins: [

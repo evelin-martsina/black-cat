@@ -1,3 +1,10 @@
+import { ErrorBoundary } from 'src/components/ErrorBoundary';
+import { MainPage } from 'src/pages';
+
 export const App = () => {
-    return <div>Hello The Greatest World!</div>;
+    return (
+        <ErrorBoundary>
+            <MainPage />
+        </ErrorBoundary>
+    );
 };

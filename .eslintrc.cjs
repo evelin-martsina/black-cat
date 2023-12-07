@@ -70,6 +70,7 @@ module.exports = {
                 functions: 'ignore',
             },
         ],
+        'react/state-in-constructor': 'off',
     },
     overrides: [
         {
@@ -80,6 +81,14 @@ module.exports = {
             files: ['src/pages/**/index.ts'],
             rules: {
                 'no-restricted-exports': 'off',
+            },
+        },
+        {
+            files: ['ErrorBoundary.tsx'],
+            rules: {
+                'react/destructuring-assignment': 'off',
+                'no-console': 'off',
+                'react/require-default-props': 'off',
             },
         },
     ],

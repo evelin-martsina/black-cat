@@ -32,7 +32,7 @@ module.exports = {
         ],
         'import/prefer-default-export': 'off',
         indent: [2, 4],
-        'linebreak-style': 'off',
+        'linebreak-style': ['warn', 'unix'],
         'lines-between-class-members': 'off',
         'max-len': ['error', { code: 120 }],
         'no-else-return': 'off',

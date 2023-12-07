@@ -1,0 +1,1 @@
+export { TermTitle } from './TermTitle';

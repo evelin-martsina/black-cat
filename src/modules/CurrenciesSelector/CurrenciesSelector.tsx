@@ -1,5 +1,5 @@
 import { Layout } from 'src/components/Layout';
-import { Select } from 'src/components/Selector';
+import { Select } from 'src/components/Select';
 
 import { useCurrenciesContext } from '../CurrenciesContext';
 

@@ -11,7 +11,6 @@ interface Configuration extends WebpackConfiguration {
 const babelLoader = {
     loader: 'babel-loader',
     options: {
-        presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }], '@babel/preset-typescript'],
         cacheDirectory: true,
     },
 };

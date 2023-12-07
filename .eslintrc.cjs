@@ -22,7 +22,7 @@ module.exports = {
         'implicit-arrow-linebreak': 'off',
         'import/extensions': 'off',
         'import/no-absolute-path': 'off',
-        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'import/no-extraneous-dependencies': 'off',
         'import/no-unresolved': 'off',
         'import/order': [
             'error',

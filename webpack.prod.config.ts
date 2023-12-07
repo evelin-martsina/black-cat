@@ -4,12 +4,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const babelLoader = {
     loader: 'babel-loader',
     options: {
-        presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }], '@babel/preset-typescript'],
         cacheDirectory: true,
     },
 };
@@ -40,7 +38,16 @@ const config: Configuration = {
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                        },
+                    },
+                ],
             },
         ],
     },
@@ -56,9 +63,6 @@ const config: Configuration = {
             minify: {
                 collapseWhitespace: true,
             },
-        }),
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
         }),
         new ESLintPlugin({
             extensions: ['ts', 'tsx'],

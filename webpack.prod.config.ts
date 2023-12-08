@@ -59,7 +59,7 @@ const config: Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'public/index.html',
             minify: {
                 collapseWhitespace: true,
             },
@@ -73,6 +73,9 @@ const config: Configuration = {
                 {
                     from: path.resolve(__dirname, './public'),
                     to: path.resolve(__dirname, './dist'),
+                    globOptions: {
+                        ignore: ['**/index.html'],
+                    },
                 },
             ],
         }),

@@ -1,12 +1,14 @@
 import DownChevron from 'src/assets/svg/chevron-down.svg';
 
-interface ArrowDownProps {
+import styles from './styles.module.css';
+
+interface IArrowDownProps {
     isOpen: boolean;
 }
 
-export const ArrowDown = ({ isOpen }: ArrowDownProps) => {
+export const ArrowDown = ({ isOpen }: IArrowDownProps) => {
     return (
-        <div style={{ padding: '10px 5px 5px' }}>
+        <div className={styles.wrapper}>
             <DownChevron style={isOpen ? { transform: 'rotate(180deg)' } : {}} />
         </div>
     );

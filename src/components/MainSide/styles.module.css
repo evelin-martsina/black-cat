@@ -1,9 +1,15 @@
 .container {
-    background: var(--white) url('../../assets/images/Kitten.png') no-repeat fixed top left 445px;
+    background: var(--white) url('../../assets/images/Kitten.png') no-repeat fixed top right;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 20px;
+}
+
+@media (max-width: 680px) {
+    .container {
+        background-position-x: 445px;
+    }
 }
 
 @media (max-width: 445px) {

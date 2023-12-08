@@ -4,7 +4,7 @@ import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-serv
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 
-interface Configuration extends WebpackConfiguration {
+interface IConfiguration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration;
 }
 
@@ -15,7 +15,7 @@ const babelLoader = {
     },
 };
 
-const config: Configuration = {
+const config: IConfiguration = {
     mode: 'development',
     output: {
         path: path.resolve(__dirname, './dev'),
@@ -51,7 +51,7 @@ const config: Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'public/index.html',
         }),
         new ESLintPlugin({
             extensions: ['ts', 'tsx'],

@@ -3,11 +3,11 @@ import { MainSide } from 'src/components/MainSide';
 
 import { CurrenciesContextProvider } from 'src/modules/CurrenciesContext';
 
-import s from './styles.module.css';
+import styles from './styles.module.css';
 
 export const MainPage = () => {
     return (
-        <main className={s.main}>
+        <main className={styles.main}>
             <CurrenciesContextProvider>
                 <MainSide />
                 <DownSide />

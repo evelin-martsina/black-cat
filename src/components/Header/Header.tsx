@@ -1,10 +1,10 @@
-import s from './styles.module.css';
+import styles from './styles.module.css';
 
 export const Header = () => {
     return (
-        <header className={s.header}>
-            <h1 className={s.heading}>Cat</h1>
-            <div className={s.description}>
+        <header className={styles.header}>
+            <h1 className={styles.heading}>Cat</h1>
+            <div className={styles.description}>
                 <span>currencies</span>
                 <span>academic</span>
                 <span>terms</span>

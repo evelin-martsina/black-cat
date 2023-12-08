@@ -1,11 +1,11 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
 import { useGetCurrenciesQuery } from 'src/store';
 
-interface Props {
+interface IProps {
     children: React.ReactNode;
 }
 
-interface Context {
+interface IContext {
     ids: string[];
     isLoading: boolean;
     isError: boolean;
@@ -14,9 +14,9 @@ interface Context {
     selectedCurrency: string | undefined;
 }
 
-export const CurrenciesContext = createContext<Context>({} as Context);
+export const CurrenciesContext = createContext<IContext>({} as IContext);
 
-export const CurrenciesContextProvider = ({ children }: Props) => {
+export const CurrenciesContextProvider = ({ children }: IProps) => {
     const { data, isLoading, isFetching, isError } = useGetCurrenciesQuery();
     const [selectedId, setSelectedId] = useState('');
 

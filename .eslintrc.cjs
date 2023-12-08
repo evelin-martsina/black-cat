@@ -1,0 +1,95 @@
+module.exports = {
+    root: true,
+    env: { browser: true, es2020: true },
+    extends: [
+        'eslint:recommended',
+        'airbnb',
+        'airbnb/hooks',
+        'plugin:import/recommended',
+        'plugin:jsx-a11y/recommended',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:@typescript-eslint/recommended',
+    ],
+    ignorePatterns: ['dist', '.eslintrc.cjs'],
+    parser: '@typescript-eslint/parser',
+    plugins: ['@typescript-eslint', 'react', 'react-hooks'],
+    rules: {
+        '@typescript-eslint/indent': 'warn',
+        '@typescript-eslint/no-explicit-any': 'error',
+        'arrow-body-style': 'off',
+        'class-methods-use-this': 'off',
+        'implicit-arrow-linebreak': 'off',
+        'import/extensions': 'off',
+        'import/no-absolute-path': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/no-unresolved': 'off',
+        'import/order': [
+            'error',
+            {
+                groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'type'],
+            },
+        ],
+        'import/prefer-default-export': 'off',
+        indent: [2, 4],
+        'linebreak-style': ['warn', 'unix'],
+        'lines-between-class-members': 'off',
+        'max-len': ['error', { code: 120 }],
+        'no-else-return': 'off',
+        'no-console': 'warn',
+        'no-shadow': 'off',
+        'object-curly-newline': 'off',
+        'react/function-component-definition': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'jsx-a11y/label-has-associated-control': [
+            2,
+            {
+                assert: 'either',
+                depth: 3,
+            },
+        ],
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'operator-linebreak': ['error', 'after'],
+        'react/jsx-indent': [2, 4],
+        'react/jsx-indent-props': [2, 4],
+        'react/jsx-filename-extension': 'off',
+        'react/jsx-no-useless-fragment': 'error',
+        'react/jsx-props-no-spreading': [
+            'error',
+            {
+                html: 'ignore',
+            },
+        ],
+        'react/jsx-wrap-multilines': 'off',
+        'react-hooks/exhaustive-deps': 'warn',
+        'react-hooks/rules-of-hooks': 'error',
+        'react/react-in-jsx-scope': 'off',
+        'react/require-default-props': [
+            2,
+            {
+                functions: 'ignore',
+            },
+        ],
+        'react/state-in-constructor': 'off',
+    },
+    overrides: [
+        {
+            files: ['src/**/*.slice.ts'],
+            rules: { 'no-param-reassign': ['error', { props: false }] },
+        },
+        {
+            files: ['src/pages/**/index.ts'],
+            rules: {
+                'no-restricted-exports': 'off',
+            },
+        },
+        {
+            files: ['ErrorBoundary.tsx'],
+            rules: {
+                'react/destructuring-assignment': 'off',
+                'no-console': 'off',
+                'react/require-default-props': 'off',
+            },
+        },
+    ],
+};

@@ -1,0 +1,28 @@
+name: Test
+
+on:
+    push:
+        branches:
+            - dev
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: install modules
+              run: npm install
+
+            - name: linter check
+              run: npm run lint
+
+            - name: prettier check
+              run: npm run format:check
+
+            - name: test
+              run: npm run test

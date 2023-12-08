@@ -1,0 +1,85 @@
+import path from 'path';
+import { Configuration } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
+const babelLoader = {
+    loader: 'babel-loader',
+    options: {
+        cacheDirectory: true,
+    },
+};
+
+const config: Configuration = {
+    mode: 'production',
+    entry: {
+        app: path.resolve(__dirname, './src/index.tsx'),
+    },
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].[contenthash].js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(ts|js)x?$/i,
+                exclude: /node_modules/,
+                use: babelLoader,
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp|ico)$/i,
+                type: 'asset',
+            },
+            {
+                test: /\.svg($|\?)/i,
+                use: [babelLoader, 'svg-to-react-webpack-loader'],
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+    resolve: {
+        alias: {
+            src: path.resolve(__dirname, 'src'),
+        },
+        extensions: ['.js', '.tsx', '.ts'],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'public/index.html',
+            minify: {
+                collapseWhitespace: true,
+            },
+        }),
+        new ESLintPlugin({
+            extensions: ['ts', 'tsx'],
+        }),
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, './public'),
+                    to: path.resolve(__dirname, './dist'),
+                    globOptions: {
+                        ignore: ['**/index.html'],
+                    },
+                },
+            ],
+        }),
+    ],
+};
+
+export default config;

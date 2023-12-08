@@ -1,0 +1,17 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main > section {
+    padding: 20px;
+}
+
+.main > section:first-child {
+    flex: 1 0 100%;
+}
+
+.main > section:last-child {
+    flex: 0 0 230px;
+}

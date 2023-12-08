@@ -30,7 +30,13 @@ export const Select = ({ onChange, options, value }: ISelectProps) => {
     }, []);
 
     return (
-        <div ref={rootRef} className={styles.wrapper} role="presentation" onClick={() => setIsOpen(!isOpen)}>
+        <div
+            ref={rootRef}
+            className={styles.wrapper}
+            role="presentation"
+            onClick={() => setIsOpen(!isOpen)}
+            data-testid="select"
+        >
             <div className={styles.value}>{value}</div>
             <ArrowDown isOpen={isOpen} />
             {isOpen && (
